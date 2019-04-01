@@ -12,10 +12,12 @@
             <RowDefinition Height="646*"/>
         </Grid.RowDefinitions>
         <Label Content="FORWARD DIFFERENCE TABLE CALCULATOR" HorizontalAlignment="Center" Margin="111.8,12,135.8,8.2" VerticalAlignment="Center" Width="774" Height="51" FontSize="30" FontFamily="Swis721 BdOul BT" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" Grid.Column="1"/>
-        <StackPanel HorizontalAlignment="Left" Height="696" Margin="10,12,0,0" VerticalAlignment="Top" Width="191" Grid.RowSpan="2">
+        <StackPanel HorizontalAlignment="Left" Height="698" Margin="10,10,0,0" VerticalAlignment="Top" Width="191" Grid.RowSpan="2">
             <Button x:Name="btn_About" Content="ABOUT" Height="50" Margin="0,0,-0.2,0" Click="Btn_About_Click"/>
             <Button x:Name="btn_Help" Content="HELP" Height="50" Margin="0,0,-0.2,0" Click="Btn_Help_Click"/>
             <Button x:Name="btn_Reference" Content="REFERENCE" Height="50" Margin="0,0,0.4,0" Click="Btn_Ref_Click"/>
+            <TextBlock x:Name="txt_shortsamp" TextWrapping="Wrap" Height="182" Margin="0,0,0.4,0"/>
+            <Button x:Name="btn_TestInp" Content="Test Input" Height="50" Margin="0,0,0.4,0" Click="Btn_TestInp_Click"/>
             <Button x:Name="btn_Close" Content="EXIT" Height="50" Margin="0,0,0.4,0" Click="Btn_Close_Click"/>
         </StackPanel>
         <DockPanel x:Name="content" Grid.Column="1" HorizontalAlignment="Left" Height="120" LastChildFill="False" Margin="7.8,29.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="500">
@@ -25,19 +27,21 @@
             </StackPanel>
 
         </DockPanel>
-        <Button x:Name="btn_One" Content="1" Grid.Column="1" HorizontalAlignment="Left" Margin="16.8,174.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" Height="60" FontSize="30" Click="Btn_One_Click"/>
-        <Button x:Name="btn_Two" Content="2" Grid.Column="1" HorizontalAlignment="Left" Margin="195.8,174.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" Height="60" FontSize="30" Click="Btn_Two_Click"/>
-        <Button x:Name="btn_Three" Content="3" Grid.Column="1" HorizontalAlignment="Left" Margin="374.8,174.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" Height="60" FontSize="30" Click="Btn_Three_Click"/>
-        <Button x:Name="btn_Four" Content="4" Grid.Column="1" HorizontalAlignment="Left" Margin="16.8,264.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" Height="60" FontSize="30" Click="Btn_Four_Click"/>
-        <Button x:Name="btn_Five" Content="5" Grid.Column="1" HorizontalAlignment="Left" Margin="195.8,264.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" Height="60" FontSize="30" Click="Btn_Five_Click"/>
-        <Button x:Name="btn_Six" Content="6" Grid.Column="1" HorizontalAlignment="Left" Margin="374.8,264.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" Height="60" FontSize="30" Click="Btn_Six_Click"/>
-        <Button x:Name="btn_Seven" Content="7" Grid.Column="1" HorizontalAlignment="Left" Margin="16.8,354.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" Height="60" FontSize="30" Click="Btn_Seven_Click"/>
-        <Button x:Name="btn_Eight" Content="8" Grid.Column="1" HorizontalAlignment="Left" Margin="195.8,354.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" Height="60" FontSize="30" Click="Btn_Eight_Click"/>
-        <Button x:Name="btn_Nine" Content="9" Grid.Column="1" HorizontalAlignment="Left" Margin="374.8,354.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" Height="60" FontSize="30" Click="Btn_Nine_Click"/>
-        <Button x:Name="btn_Zero" Content="0" Grid.Column="1" HorizontalAlignment="Left" Margin="16.8,444.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" Height="60" FontSize="30" Click="Btn_Zero_Click"/>
-        <Button x:Name="btn_Decimal" Content="." Grid.Column="1" HorizontalAlignment="Left" Margin="195.8,444.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" Height="60" FontSize="30" Click="Btn_Decimal_Click"/>
-        <Button x:Name="btn_Comma" Content="," Grid.Column="1" HorizontalAlignment="Left" Margin="374.8,444.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" Height="60" FontSize="30" Click="Btn_Comma_Click"/>
-        <Button x:Name="btn_Calc" Content="CALCULATE" Grid.Column="1" HorizontalAlignment="Left" Margin="67.8,534.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="389" Height="69" FontSize="30" Click="Btn_Calc_Click"/>
+        <Button x:Name="btn_One" Content="1" Grid.Column="1" HorizontalAlignment="Left" Margin="276.8,174.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Height="60" FontSize="30" Click="Btn_One_Click"/>
+        <Button x:Name="btn_Two" Content="2" Grid.Column="1" HorizontalAlignment="Left" Margin="16.8,264.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Height="60" FontSize="30" Click="Btn_Two_Click"/>
+        <Button x:Name="btn_Three" Content="3" Grid.Column="1" HorizontalAlignment="Left" Margin="146.8,264.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Height="60" FontSize="30" Click="Btn_Three_Click"/>
+        <Button x:Name="btn_Four" Content="4" Grid.Column="1" HorizontalAlignment="Left" Margin="276.8,264.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Height="60" FontSize="30" Click="Btn_Four_Click"/>
+        <Button x:Name="btn_Five" Content="5" Grid.Column="1" HorizontalAlignment="Left" Margin="16.8,354.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Height="60" FontSize="30" Click="Btn_Five_Click"/>
+        <Button x:Name="btn_Six" Content="6" Grid.Column="1" HorizontalAlignment="Left" Margin="146.8,354.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Height="60" FontSize="30" Click="Btn_Six_Click"/>
+        <Button x:Name="btn_Seven" Content="7" Grid.Column="1" HorizontalAlignment="Left" Margin="276.8,354.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Height="60" FontSize="30" Click="Btn_Seven_Click"/>
+        <Button x:Name="btn_Eight" Content="8" Grid.Column="1" HorizontalAlignment="Left" Margin="16.8,444.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Height="60" FontSize="30" Click="Btn_Eight_Click"/>
+        <Button x:Name="btn_Nine" Content="9" Grid.Column="1" HorizontalAlignment="Left" Margin="146.8,444.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Height="60" FontSize="30" Click="Btn_Nine_Click"/>
+        <Button x:Name="btn_Zero" Content="0" Grid.Column="1" HorizontalAlignment="Left" Margin="276.8,444.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Height="60" FontSize="30" Click="Btn_Zero_Click"/>
+        <Button x:Name="btn_Decimal" Content="DOT(.)" Grid.Column="1" HorizontalAlignment="Left" Margin="393.8,174.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="114" Height="150" FontSize="30" Click="Btn_Decimal_Click"/>
+        <Button x:Name="btn_Comma" Content="COM(,)" Grid.Column="1" HorizontalAlignment="Left" Margin="393.8,354.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="114" Height="150" FontSize="30" Click="Btn_Comma_Click"/>
+        <Button x:Name="btn_Neg" Content="-" Grid.Column="1" HorizontalAlignment="Left" Margin="16.8,169.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="230" Height="69" FontSize="30" Click="Btn_Neg_Click"/>
+        <Button x:Name="btn_Clr" Content="CLEAR" Grid.Column="1" HorizontalAlignment="Left" Margin="16.8,534.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="230" Height="69" FontSize="30" Click="Btn_Clr_Click"/>
+        <Button x:Name="btn_Calc" Content="CALCULATE" Grid.Column="1" HorizontalAlignment="Left" Margin="276.8,534.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="231" Height="69" FontSize="30" Click="Btn_Calc_Click"/>
         <Separator Grid.Column="1" HorizontalAlignment="Left" Height="627" Margin="507.8,9.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="5" RenderTransformOrigin="0.5,0.5">
             <Separator.RenderTransform>
                 <TransformGroup>

@@ -9,10 +9,10 @@
     <Grid>
         <Image Margin="10,42,584.2,145.6" Source="fprwarddiff formula.gif" Stretch="Fill"/>
         <TextBlock x:Name="lb_Formula" HorizontalAlignment="Left" Margin="400,68,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="141" Width="569"/>
-        <TextBlock x:Name="lb_Input" HorizontalAlignment="Left" Margin="400,272,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="89" Width="569"/>
+        <TextBlock x:Name="lb_Input" HorizontalAlignment="Left" Margin="400,267,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="94" Width="569"/>
         <Button x:Name="btn_Close" Content="CLOSE" HorizontalAlignment="Center" Margin="400,387,357.2,0" VerticalAlignment="Top" Width="222" Height="52" FontSize="30" FontWeight="Bold" Click="Button_Close"/>
         <Label Content="HOW IS IT COMPUTED?" HorizontalAlignment="Left" Margin="400,10,0,0" VerticalAlignment="Top" Width="569" FontWeight="Bold" Height="58" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <Label Content="INPUT FORMAT" HorizontalAlignment="Left" Margin="400,209,0,0" VerticalAlignment="Top" Width="569" FontWeight="Bold" Height="58" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label Content="LIMITATION" HorizontalAlignment="Left" Margin="400,209,0,0" VerticalAlignment="Top" Width="569" FontWeight="Bold" Height="58" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
 
     </Grid>
 </Window>

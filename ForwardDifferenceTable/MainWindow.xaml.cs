@@ -22,11 +22,12 @@ namespace ForwardDifferenceTable
 {
     public partial class MainWindow : Window
     {
-        String pattern = @"[0-9]+\.?[0-9,]*";
+        String pattern = @"[\-0-9]+\.?[0-9,]*";
         public MainWindow()
         {
             InitializeComponent();
 
+            txt_shortsamp.Text = "\n\nUse the keyboard layout included in the program. If there will be any mistakes on the input please use your backspace key.\n\nSample input:\n90, 47, 58, 29, 22, 32, 55, 5, 55, 73";
             txt_Input.TextChanged += new TextChangedEventHandler(Txt_Input_TextChanged);
             txt_Input.KeyDown += new System.Windows.Input.KeyEventHandler(Txt_Input_KeyDown);
         }
@@ -113,7 +114,12 @@ namespace ForwardDifferenceTable
 
         private void Btn_Comma_Click(object sender, EventArgs e)
         {
-            txt_Input.Text += ",";
+            txt_Input.Text += ", ";
+        }
+
+        private void Btn_Neg_Click(object sender, RoutedEventArgs e)
+        {
+            txt_Input.Text += "-";
         }
 
         static IEnumerable<float> ForwardDifference(IEnumerable<float> sequence, uint order = 1u)
@@ -127,6 +133,12 @@ namespace ForwardDifferenceTable
                 default:
                     return ForwardDifference(ForwardDifference(sequence), order - 1u);
             }
+        }
+
+        private void Btn_Clr_Click(object sender, EventArgs e)
+        {
+            txt_Input.Text = "";
+            txt_Output.Text = "";
         }
 
         private void Btn_About_Click(object sender, EventArgs e)
@@ -144,6 +156,11 @@ namespace ForwardDifferenceTable
         private void Btn_Ref_Click(object sender, RoutedEventArgs e)
         {
             System.Diagnostics.Process.Start("https://nptel.ac.in/courses/122104019/numerical-analysis/Rathish-kumar/rathish-oct31/fratnode8.html");
+        }
+
+        private void Btn_TestInp_Click(object sender, RoutedEventArgs e)
+        {
+            txt_Input.Text = "90, 47, 58, 29, 22, 32, 55, 5, 55, 73";
         }
 
         private void Btn_Close_Click(object sender, EventArgs e)
