@@ -20,7 +20,7 @@
         </StackPanel>
         <DockPanel x:Name="content" Grid.Column="1" HorizontalAlignment="Left" Height="120" LastChildFill="False" Margin="7.8,29.8,0,0" Grid.Row="1" VerticalAlignment="Top" Width="500">
             <StackPanel Height="120" VerticalAlignment="Top" Width="500">
-                <TextBox x:Name="txt_Input" Height="60" BorderThickness="0,0,0,5" FontSize="25" IsUndoEnabled="False" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="Black"/>
+                <TextBox x:Name="txt_Input" Height="60" BorderThickness="0,0,0,5" FontSize="25" IsUndoEnabled="False" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="Black" TextChanged="Txt_Input_TextChanged" KeyDown="Txt_Input_KeyDown"/>
                 <Label Content="INPUTS" Height="60" FontSize="20" HorizontalContentAlignment="Center" FontWeight="Bold"/>
             </StackPanel>
 

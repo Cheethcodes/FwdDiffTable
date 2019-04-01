@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -21,9 +22,13 @@ namespace ForwardDifferenceTable
 {
     public partial class MainWindow : Window
     {
+        String pattern = @"[0-9]+\.?[0-9,]*";
         public MainWindow()
         {
             InitializeComponent();
+
+            txt_Input.TextChanged += new TextChangedEventHandler(Txt_Input_TextChanged);
+            txt_Input.KeyDown += new System.Windows.Input.KeyEventHandler(Txt_Input_KeyDown);
         }
 
         private void Btn_Calc_Click(object sender, EventArgs e)
@@ -144,6 +149,32 @@ namespace ForwardDifferenceTable
         private void Btn_Close_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Txt_Input_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            txt_Output.Text = "";
+
+            Regex newPattern = new Regex(pattern);
+            MatchCollection match = newPattern.Matches(txt_Input.Text);
+
+            if (match.Count == 0)
+            {
+                txt_Input.Text = "";
+            }
+            else
+            {
+
+            }
+        }
+
+        private void Txt_Input_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            //if (!System.Text.RegularExpressions.Regex.IsMatch(e.Key.ToString(), @"[^a-zA-Z^+^\-^\/^\*^\(^\)]"))
+            if (!Regex.IsMatch(e.Key.ToString(), pattern))
+            {
+                e.Handled = true;
+            }
         }
     }
 }
