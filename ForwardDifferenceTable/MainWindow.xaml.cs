@@ -22,7 +22,13 @@ namespace ForwardDifferenceTable
 {
     public partial class MainWindow : Window
     {
+        // Regex
         String pattern = @"[\-0-9]+\.?[0-9,]*";
+
+        // Global Declaration
+        string cleanInput = "";
+        string[] curInput;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -49,6 +55,8 @@ namespace ForwardDifferenceTable
             }
 
             IEnumerable<float> real_Sequence = converted_Sequence;
+
+            txt_Output.Text = "";
 
             do
             {
@@ -117,7 +125,7 @@ namespace ForwardDifferenceTable
             txt_Input.Text += ", ";
         }
 
-        private void Btn_Neg_Click(object sender, RoutedEventArgs e)
+        private void Btn_Neg_Click(object sender, EventArgs e)
         {
             txt_Input.Text += "-";
         }
@@ -153,7 +161,7 @@ namespace ForwardDifferenceTable
             help.Show();
         }
 
-        private void Btn_Ref_Click(object sender, RoutedEventArgs e)
+        private void Btn_Ref_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("https://nptel.ac.in/courses/122104019/numerical-analysis/Rathish-kumar/rathish-oct31/fratnode8.html");
         }
@@ -187,10 +195,25 @@ namespace ForwardDifferenceTable
 
         private void Txt_Input_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
-            //if (!System.Text.RegularExpressions.Regex.IsMatch(e.Key.ToString(), @"[^a-zA-Z^+^\-^\/^\*^\(^\)]"))
             if (!Regex.IsMatch(e.Key.ToString(), pattern))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void Btn_Backspace(object sender, EventArgs e)
+        {
+            cleanInput = (txt_Input.Text).Replace(",", "");
+            curInput = (cleanInput).Split();
+
+            txt_Input.Text = "";
+
+            for (int i = 0; i < curInput.Length-1; i++)
+            {
+                if (i == curInput.Length - 2)
+                    txt_Input.Text += curInput[i];
+                else
+                    txt_Input.Text += curInput[i] + ", ";
             }
         }
     }
